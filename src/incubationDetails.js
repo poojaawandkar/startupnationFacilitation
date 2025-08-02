@@ -277,10 +277,10 @@ export default function IncubationDetails() {
     return (
       <div className="incubation-details-page">
         <div className="incubation-details-container">
-          <div className="error-message">
+          <div className="error-message" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
             <h2>Center Not Found</h2>
             <p>{error || 'The requested incubation center could not be found.'}</p>
-            <button className="back-btn" onClick={() => navigate('/')}>
+            <button className="back-btn" onClick={() => navigate('/')} style={{ marginTop: '20px', marginLeft: '0', alignSelf: 'center' }}>
               Back to Home
             </button>
           </div>
@@ -293,10 +293,10 @@ export default function IncubationDetails() {
     return (
       <div className="incubation-details-page">
         <div className="incubation-details-container">
-          <div className="error-message">
+          <div className="error-message" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
             <h2>Details Coming Soon</h2>
             <p>Details for this incubation center will be uploaded soon once the center fills the registration form and gets approved.</p>
-            <button className="back-btn" onClick={() => navigate('/')}>
+            <button className="back-btn" onClick={() => navigate('/')} style={{ marginTop: '20px', marginLeft: '0', alignSelf: 'center' }}>
               Back to Home
             </button>
           </div>
