@@ -1,0 +1,367 @@
+.post-incubation-page {
+  min-height: 100vh;
+  background: #232323;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.post-incubation-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.post-incubation-form-page {
+  background: #181818;
+  border-radius: 18px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.form-header h2 {
+  color: #FFD600;
+  font-size: 2.1rem;
+  font-weight: 900;
+  margin: 0 0 0.5rem 0;
+}
+
+.form-header p {
+  color: #fff;
+  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+}
+
+.back-home-btn {
+  background: #232323;
+  color: #FFD600;
+  border: 2px solid #FFD600;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-home-btn:hover {
+  background: #FFD600;
+  color: #232323;
+  transform: translateY(-2px);
+}
+
+.form-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form-section {
+  background: #232323;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #333;
+}
+
+.form-section h3 {
+  color: #FFD600;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0 0 1.5rem 0;
+}
+
+.form-section label {
+  display: block;
+  margin-bottom: 1.2rem;
+  color: #FFD600;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.form-section input,
+.form-section select,
+.form-section textarea {
+  width: 100%;
+  background: #181818;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 0.8rem;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.form-section input:focus,
+.form-section select:focus,
+.form-section textarea:focus {
+  outline: none;
+  border-color: #FFD600;
+}
+
+.form-section input::placeholder,
+.form-section textarea::placeholder {
+  color: #ccc;
+}
+
+.form-section input[type="file"] {
+  background: #232323;
+  padding: 0.6rem;
+  cursor: pointer;
+}
+
+.form-section input[type="file"]::-webkit-file-upload-button {
+  background: #FFD600;
+  color: #232323;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.logo-preview {
+  max-width: 200px;
+  max-height: 150px;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  border: 2px solid #333;
+}
+
+.error-message {
+  color: #ff4d4f;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+.input-error {
+  border-color: #ff4d4f !important;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.submit-btn {
+  background: #FFD600;
+  color: #232323;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 150px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #fff;
+  color: #232323;
+  transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  background: #232323;
+  color: #FFD600;
+  border: 2px solid #FFD600;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 150px;
+}
+
+.cancel-btn:hover:not(:disabled) {
+  background: #FFD600;
+  color: #232323;
+  transform: translateY(-2px);
+}
+
+.cancel-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Thank You Message */
+.thank-you-message {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #181818;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+}
+
+.thank-you-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  color: #FFD600;
+}
+
+.thank-you-message h2 {
+  color: #FFD600;
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin: 0 0 1rem 0;
+}
+
+.thank-you-message h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0 0 2rem 0;
+  line-height: 1.5;
+}
+
+.thank-you-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.back-home-btn,
+.post-another-btn {
+  background: #FFD600;
+  color: #232323;
+  border: none;
+  border-radius: 12px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.back-home-btn:hover,
+.post-another-btn:hover {
+  background: #fff;
+  color: #232323;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .form-sections {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .post-incubation-form-page {
+    padding: 2rem;
+  }
+  
+  .form-section {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .post-incubation-page {
+    padding: 1rem 0.5rem;
+  }
+  
+  .post-incubation-form-page {
+    padding: 1.5rem;
+  }
+  
+  .form-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .form-header p {
+    font-size: 1rem;
+  }
+  
+  .form-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .submit-btn,
+  .cancel-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .thank-you-message {
+    padding: 2rem 1rem;
+  }
+  
+  .thank-you-message h2 {
+    font-size: 2rem;
+  }
+  
+  .thank-you-message h3 {
+    font-size: 1.1rem;
+  }
+  
+  .thank-you-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .back-home-btn,
+  .post-another-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-incubation-form-page {
+    padding: 1rem;
+  }
+  
+  .form-section {
+    padding: 1rem;
+  }
+  
+  .form-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .form-section input,
+  .form-section select,
+  .form-section textarea {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+  
+  .submit-btn,
+  .cancel-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
