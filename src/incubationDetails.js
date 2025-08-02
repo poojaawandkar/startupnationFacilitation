@@ -42,7 +42,7 @@ const generateBrowserSessionId = () => {
   if (!sessionId) {
     sessionId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
       const r = Math.random() * 16 | 0;
-      const v = c === 'x' ? r : (r & 0x3 | 0x8);
+      const v = c === 'x' ? r : (r & 0x3) | 0x8; // Added parentheses here
       return v.toString(16);
     });
     localStorage.setItem('browser_session_id', sessionId);
@@ -113,9 +113,7 @@ export default function IncubationDetails() {
   const [newComment, setNewComment] = useState({ name: '', comment: '' });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(null);
   const [submitting, setSubmitting] = useState(false);
-  const [commentLoading, setCommentLoading] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [commentToDelete, setCommentToDelete] = useState(null);
 
@@ -225,10 +223,11 @@ export default function IncubationDetails() {
       
       // Remove from local state
       setComments(comments.filter(c => c.id !== commentId));
-      setShowDeleteConfirm(null);
     } catch (err) {
       console.error('Error deleting comment:', err);
       alert('Failed to delete comment. You can only delete your own comments.');
+    } finally {
+      setShowDeleteModal(false);
     }
   };
 
@@ -487,4 +486,4 @@ export default function IncubationDetails() {
       )}
     </div>
   );
-} 
+}
