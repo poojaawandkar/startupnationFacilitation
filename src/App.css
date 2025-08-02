@@ -1,4 +1,19 @@
 /* src/App.css */
+
+/* Fix for Wix embedding issues */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* Reset any Wix iframe margins/padding */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   background-color: #292929;

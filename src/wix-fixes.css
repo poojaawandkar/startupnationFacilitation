@@ -1,0 +1,77 @@
+/* Wix Embedding Fixes */
+
+/* Reset all margins and padding that Wix might add */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* Fix iframe spacing issues */
+iframe {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+/* Ensure proper box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+/* Fix for Wix container spacing */
+.wix-embed-container {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* Specific fixes for your app components */
+.App {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+}
+
+.incubation-details-page {
+  margin: 0 !important;
+  padding: 2rem 1rem !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+}
+
+.incubation-details-container {
+  margin: 0 auto !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+}
+
+/* Fix for mobile responsiveness in Wix */
+@media (max-width: 768px) {
+  .incubation-details-page {
+    padding: 1rem 0.5rem !important;
+  }
+  
+  .incubation-details-container {
+    padding: 0 !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Override any Wix-specific styles */
+[data-wix-embed] {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure proper viewport handling */
+#root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+} 

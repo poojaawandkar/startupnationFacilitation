@@ -1,3 +1,11 @@
+/* Fix for Wix embedding issues */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
 .incubation-details-page {
     min-height: 100vh;
     background: #232323;
@@ -5,6 +13,8 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    margin: 0 !important;
+    width: 100% !important;
   }
   
 .incubation-details-container {
@@ -14,6 +24,8 @@
   flex-direction: column;
   gap: 1rem;
   margin: 0 auto;
+  padding: 0 !important;
+  box-sizing: border-box;
 }
 
 .incubation-details-content {
@@ -45,6 +57,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    line-height: 1.4;
   }
   
   .separator {
@@ -73,6 +86,7 @@
     align-items: center;
     gap: 0.5rem;
     flex-wrap: wrap;
+    line-height: 1.4;
   }
   
 .incubation-type {
@@ -532,16 +546,18 @@
   
   .incubation-details-company {
     font-size: 0.9rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.15rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
   
   .incubation-details-meta {
     font-size: 0.8rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.15rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
   
   .incubation-details-actions {
@@ -738,11 +754,19 @@
   }
   
   .incubation-details-company {
-      font-size: 0.9rem;
-    }
+    font-size: 0.9rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
     
   .incubation-details-meta {
-      font-size: 0.8rem;
+    font-size: 0.8rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
     }
     
@@ -869,6 +893,22 @@
 @media (max-width: 360px) {
   .incubation-details-page {
     padding: 10px;
+  }
+  
+  .incubation-details-company {
+    font-size: 0.8rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+  }
+  
+  .incubation-details-meta {
+    font-size: 0.7rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3rem;
+    flex-wrap: wrap;
   }
   
   .incubation-details-page .error-message {
