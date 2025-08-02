@@ -501,7 +501,7 @@ body {
 }
 .incubation-center-country {
   color: #FFD600;
-  font-size: 0.9rem;
+  font-size: 2rem;
   font-weight: 600;
   margin: 0;
 }
@@ -759,7 +759,7 @@ body {
 
 .incubation-center-country {
   color: #FFD600;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   font-weight: 600;
   margin: 0;
   flex-shrink: 0;
@@ -1159,7 +1159,7 @@ body {
   }
   
   .incubation-center-country {
-    font-size: 0.8rem;
+    font-size: 2rem;
   }
 }
 
@@ -1265,6 +1265,6 @@ body {
   }
   
   .incubation-center-country {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 }
