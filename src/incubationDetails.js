@@ -144,10 +144,26 @@ export default function IncubationDetails() {
           );
         }
         
+        // If center is not found in mock data, create a basic center object
+        // This ensures all centers show "Details Coming Soon" instead of "Center Not Found"
         if (!centerData) {
-          setError('Incubation center not found');
-          setLoading(false);
-          return;
+          centerData = {
+            id: Date.now(), // Temporary ID
+            company_name: companyName,
+            location: "Location to be updated",
+            domain: "Domain to be updated",
+            incubation_center_type: "Incubation center",
+            services: "Services to be updated",
+            startups_incubated: "To be updated",
+            support_remuneration: "To be updated",
+            incubation_description: "Description will be uploaded soon.",
+            unique_selling_point: "USP will be uploaded soon.",
+            company_email: "contact@example.com",
+            company_website: "#",
+            youtube_link: "",
+            logo_url: "",
+            is_approved: false // This ensures "Details Coming Soon" message
+          };
         }
 
         setCenter(centerData);
@@ -273,13 +289,13 @@ export default function IncubationDetails() {
     );
   }
 
-  if (error || !center) {
+  if (error) {
     return (
       <div className="incubation-details-page">
         <div className="incubation-details-container">
           <div className="error-message" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-            <h2>Center Not Found</h2>
-            <p>{error || 'The requested incubation center could not be found.'}</p>
+            <h2>Error Loading Details</h2>
+            <p>{error}</p>
             <button className="back-btn" onClick={() => navigate('/')} style={{ marginTop: '20px', marginLeft: '0', alignSelf: 'center' }}>
               Back to Home
             </button>
