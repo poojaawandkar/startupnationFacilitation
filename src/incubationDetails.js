@@ -5,7 +5,8 @@ import {
   getIncubationCenterByName, 
   getCommentsByCenterId, 
   addComment, 
-  deleteComment
+  deleteComment,
+  getAllApprovedCenters
 } from './services/incubationService';
 
 // Function to convert YouTube URL to embed format
@@ -102,6 +103,23 @@ const mockIncubationCenters = [
     youtube_link: "https://www.youtube.com/watch?v=jNQXAC9IVRw",
     logo_url: "/imageslogo/builduplabs.png",
     is_approved: false
+  },
+  {
+    id: 142,
+    company_name: "AIC-RNTU Foundation",
+    location: "India",
+    domain: "Agnostic",
+    incubation_center_type: "Incubation center",
+    services: "Hybrid",
+    startups_incubated: "50+",
+    support_remuneration: "Equity based",
+    incubation_description: "AIC-RNTU Foundation is central India's leading sector-agnostic incubation center focused on early-stage startups. We provide comprehensive support through multiple government schemes, holistic development programs, extensive networks, expert mentoring, and curated programs designed to accelerate startup growth and success.",
+    unique_selling_point: "We are central India's Leading Sector Agnostic Incubation center focused on Early stage startups with Multiple Govt. schemes support for startups to holistic development with networks, mentoring and curated programs",
+    company_email: "contact@aic-rntu.org",
+    company_website: "https://aic-rntu.org",
+    youtube_link: "https://www.youtube.com/watch?v=jNQXAC9IVRw",
+    logo_url: "https://static.wixstatic.com/media/c5dc99_3f2a792fabe24746b2635a1287e2f075~mv2.png",
+    is_approved: false 
   }
 ];
 
@@ -131,17 +149,60 @@ export default function IncubationDetails() {
         
         // Try to fetch from Supabase first
         let centerData = null;
+        let nameVariations = [];
         try {
-          centerData = await getIncubationCenterByName(companyName);
+          // Try multiple variations of the company name
+          nameVariations = [
+            companyName,
+            companyName.replace(/\s+/g, ' ').trim(), // Normalize spaces
+            decodedName.replace(/-/g, ' ').toLowerCase(), // Lowercase version
+            decodedName.replace(/-/g, ' ').toUpperCase(), // Uppercase version
+            decodedName.replace(/-/g, ''), // Remove all hyphens
+            decodedName.replace(/-/g, ' ').replace(/\s+/g, ' ').trim(), // Normalized version
+            // Special handling for AIC-RNTU Foundation
+            companyName.toLowerCase().includes('aic-rntu') ? 'AIC-RNTU Foundation' : null,
+            companyName.toLowerCase().includes('aic rntu') ? 'AIC-RNTU Foundation' : null
+          ].filter(Boolean); // Remove null values
+          
+          for (const variation of nameVariations) {
+            try {
+              centerData = await getIncubationCenterByName(variation);
+              if (centerData) break; // Found a match
+            } catch (error) {
+              console.log(`Tried variation "${variation}": ${error.message}`);
+              continue; // Try next variation
+            }
+          }
         } catch (supabaseError) {
           console.log('Supabase not configured, using mock data');
         }
         
+        // Debug: Log all approved centers to help identify the issue
+        try {
+          const allCenters = await getAllApprovedCenters();
+          console.log('All approved centers in database:', allCenters);
+          console.log('Looking for company name variations:', nameVariations);
+        } catch (debugError) {
+          console.log('Debug: Could not fetch all centers');
+        }
+        
         // If Supabase fails or returns null, use mock data
         if (!centerData) {
-          centerData = mockIncubationCenters.find(center => 
-            center.company_name.toLowerCase() === companyName.toLowerCase()
-          );
+          centerData = mockIncubationCenters.find(center => {
+            const centerNameLower = center.company_name.toLowerCase();
+            const searchNameLower = companyName.toLowerCase();
+            
+            // Exact match
+            if (centerNameLower === searchNameLower) return true;
+            
+            // Special handling for AIC-RNTU Foundation
+            if (searchNameLower.includes('aic-rntu') || searchNameLower.includes('aic rntu')) {
+              return centerNameLower.includes('aic-rntu foundation');
+            }
+            
+            // Partial match
+            return centerNameLower.includes(searchNameLower) || searchNameLower.includes(centerNameLower);
+          });
         }
         
         // If center is not found in mock data, create a basic center object

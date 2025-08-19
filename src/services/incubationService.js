@@ -107,15 +107,28 @@ export const getIncubationCenterById = async (id) => {
 // Get incubation center by company name (case-insensitive)
 export const getIncubationCenterByName = async (companyName) => {
   try {
-    const { data, error } = await supabase
+    // First try exact match with case-insensitive search
+    let { data, error } = await supabase
       .from('incubation_centers')
       .select('*')
-      .ilike('company_name', `%${companyName}%`)
+      .ilike('company_name', companyName)
       .eq('is_approved', true)
       .single();
 
-    if (error) throw error;
+    if (error && error.code === 'PGRST116') {
+      // If exact match fails, try partial match
+      const { data: partialData, error: partialError } = await supabase
+        .from('incubation_centers')
+        .select('*')
+        .ilike('company_name', `%${companyName}%`)
+        .eq('is_approved', true)
+        .single();
 
+      if (partialError) throw partialError;
+      return partialData;
+    }
+
+    if (error) throw error;
     return data;
   } catch (error) {
     console.error('Error fetching incubation center by name:', error);
@@ -201,5 +214,21 @@ export const canDeleteComment = async (commentId) => {
   } catch (error) {
     console.error('Error checking comment ownership:', error);
     return false;
+  }
+};
+
+// Debug function to list all approved incubation centers
+export const getAllApprovedCenters = async () => {
+  try {
+    const { data, error } = await supabase
+      .from('incubation_centers')
+      .select('company_name, is_approved')
+      .eq('is_approved', true);
+
+    if (error) throw error;
+    return data;
+  } catch (error) {
+    console.error('Error fetching all approved centers:', error);
+    return [];
   }
 }; 
