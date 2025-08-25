@@ -177,7 +177,7 @@ const incubationCenters = [
   { "id": 159, "name": "Kalsekar Incubation Centre", "country": "India", "domain": "Agnostic", "university": "Anjuman I Islam s Kalsekar Technical Campus", "logo": "", "description": "Almost All domain based startups" },
   { "id": 160, "name": "Kick Start Incubation ", "country": "India", "domain": "Agnostic", "university": "St Joseph's College for Women, Kerala University", "logo": "", "description": "" },
   { "id": 161, "name": "EIIC", "country": "India", "domain": "Agnostic", "university": "RTMNU", "logo": "", "description": "" },
-  { "id": 162, "name": "AIC MIT ADT Incubator Forum", "country": "India", "domain": "Agnostic", "university": "MIT Art, Design and Technology University", "logo": "", "description": "Entire ecosystem from Ideation to Market Launch and Scaleup for only 2% equity. Individual Mentorship. Idyllic location" },
+  { "id": 162, "name": "AIC MIT ADT Incubator Forum", "country": "India", "domain": "Agnostic", "university": "MIT Art, Design and Technology University", "logo": "https://wragnkdnvhyguszznvjw.supabase.co/storage/v1/object/public/incubation-logos/logos/1755968845225.jpg", "description": "Entire ecosystem from Ideation to Market Launch and Scaleup for only 2% equity. Individual Mentorship. Idyllic location" },
   { "id": 163, "name": "Central Sanskrit University ", "country": "India", "domain": "Agnostic", "university": "Central Sanskrit University ", "logo": "", "description": "" },
   { "id": 164, "name": "Institution s Innovation Council (IIC)", "country": "India", "domain": "Agnostic", "university": "IGNOU", "logo": "", "description": "" },
 
