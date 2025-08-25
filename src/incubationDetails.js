@@ -120,6 +120,23 @@ const mockIncubationCenters = [
     youtube_link: "https://www.youtube.com/watch?v=jNQXAC9IVRw",
     logo_url: "https://static.wixstatic.com/media/c5dc99_3f2a792fabe24746b2635a1287e2f075~mv2.png",
     is_approved: false 
+  },
+  {
+    id: 9,
+    company_name: "AIC-JKLU Foundation",
+    location: "India",
+    domain: "Agnostic",
+    incubation_center_type: "Incubation center",
+    services: "Hybrid",
+    startups_incubated: "30+",
+    support_remuneration: "Equity based",
+    incubation_description: "AIC-JKLU Foundation is a sector-agnostic incubator that supports startups in Lifesciences, Industry 4.0, Smart & Clean Mobility, and Aerospace & Defence by offering 5M support—from incubation to acceleration—to drive their innovations forward. We provide customizable incubation programs, corporate innovation programs, exposure to JK Group, 2:1 mentor startup ratio, and fortnightly check-ins.",
+    unique_selling_point: "Customisable Incubation Program, Corporate Innovation Program, Exposure to JK Group, 2:1 mentor startup ratio, Fortnightly check-ins",
+    company_email: "contact@aic-jklu.org",
+    company_website: "https://aic-jklu.org",
+    youtube_link: "https://www.youtube.com/watch?v=jNQXAC9IVRw",
+    logo_url: "https://static.wixstatic.com/media/7d72e7_48f9b48e07b340f0b2916de9da6ef44b~mv2.png",
+    is_approved: true
   }
 ];
 
@@ -161,7 +178,10 @@ export default function IncubationDetails() {
             decodedName.replace(/-/g, ' ').replace(/\s+/g, ' ').trim(), // Normalized version
             // Special handling for AIC-RNTU Foundation
             companyName.toLowerCase().includes('aic-rntu') ? 'AIC-RNTU Foundation' : null,
-            companyName.toLowerCase().includes('aic rntu') ? 'AIC-RNTU Foundation' : null
+            companyName.toLowerCase().includes('aic rntu') ? 'AIC-RNTU Foundation' : null,
+            // Special handling for AIC-JKLU Foundation
+            companyName.toLowerCase().includes('aic-jklu') ? 'AIC-JKLU Foundation' : null,
+            companyName.toLowerCase().includes('aic jklu') ? 'AIC-JKLU Foundation' : null
           ].filter(Boolean); // Remove null values
           
           for (const variation of nameVariations) {
@@ -198,6 +218,11 @@ export default function IncubationDetails() {
             // Special handling for AIC-RNTU Foundation
             if (searchNameLower.includes('aic-rntu') || searchNameLower.includes('aic rntu')) {
               return centerNameLower.includes('aic-rntu foundation');
+            }
+            
+            // Special handling for AIC-JKLU Foundation
+            if (searchNameLower.includes('aic-jklu') || searchNameLower.includes('aic jklu')) {
+              return centerNameLower.includes('aic-jklu foundation');
             }
             
             // Partial match
